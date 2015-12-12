@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/notifications"
+        android:icon="@drawable/ic_notifications_on_white_48dp"
+        app:showAsAction="always"
+        android:title="@string/action_notification">
+    </item>
+
+    <item
+        android:id="@+id/favorites"
+        android:icon="@drawable/ic_favorite_outline_white_48dp"
+        app:showAsAction="ifRoom"
+        android:title="@string/action_favorites">
+    </item>
+
+    <item
+        android:id="@+id/addToFavorites"
+        android:icon="@drawable/ic_add_to_favorite_outline_white_48dp"
+        app:showAsAction="ifRoom"
+        android:title="@string/action_addToFavorites">
+    </item>
+
+    <item
+        android:id="@+id/settings"
+        android:icon="@drawable/ic_settings_applications_white_48dp"
+        app:showAsAction="ifRoom"
+        android:title="@string/action_settings">
+    </item>
+
+</menu>

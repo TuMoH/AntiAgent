@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="primary">#376dd9</color>
+    <color name="textColor">#ff000000</color>
+    <color name="textColorPrimary">#ffffffff</color>
+    <color name="accent">#376dd9</color>
+    <color name="buttonNormal">#376dd9</color>
+    <color name="orange">#ffb62c</color>
+    <color name="blue">#376dd9</color>
+
+    <!--button color-->
+    <color name="btn_on">#376dd9</color>
+    <color name="btn_off">#ffffffff</color>
+    <color name="textWhite">#ffffffff</color>
+    <color name="textDark">#ff7bb7f5</color>
+
+    <color name="tvBorderColor">#376dd9</color>
+</resources>

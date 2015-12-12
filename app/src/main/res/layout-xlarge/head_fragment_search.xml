@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<com.timurkaSoft.AntiAgent.FragmentTransaction.SlidingRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_material_light"
+    android:orientation="vertical"
+    android:layout_marginTop="4dp">
+
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background_material_light">
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:stretchColumns="*">
+
+            <Spinner
+                android:id="@+id/spinnerCity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="5dp"
+                android:minHeight="40dp"
+                style="@style/Spinner.DropDown" />
+
+            <Spinner
+                android:id="@+id/spinnerZone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="40dp"
+                style="@style/Base.Widget.AppCompat.Spinner.DropDown.ActionBar" />
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp"
+                android:layout_marginTop="15dp">
+
+                <com.gc.materialdesign.views.ButtonFlat
+                    android:id="@+id/buttonSELL"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="1dp"
+                    android:background="@color/btn_off"
+                    android:text="Купить" />
+
+                <com.gc.materialdesign.views.ButtonFlat
+                    android:id="@+id/buttonRENT"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/btn_off"
+                    android:text="Снять" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="2dp">
+
+                <com.gc.materialdesign.views.ButtonFlat
+                    android:id="@+id/buttonAPARTMENT"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="1dp"
+                    android:background="@color/btn_off"
+                    android:text="Квартиру" />
+
+                <com.gc.materialdesign.views.ButtonFlat
+                    android:id="@+id/buttonROOMS"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/btn_off"
+                    android:text="Комнату" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="2dp">
+
+                <com.gc.materialdesign.views.ButtonFlat
+                    android:id="@+id/buttonHOUSE"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="1dp"
+                    android:background="@color/btn_off"
+                    android:text="Дом" />
+
+                <com.gc.materialdesign.views.ButtonFlat
+                    android:id="@+id/buttonGARAGE"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/btn_off"
+                    android:text="Гараж" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp">
+
+                <com.gc.materialdesign.views.ButtonFlat
+                    android:id="@+id/buttonCOMMERCIAL"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="1dp"
+                    android:background="@color/btn_off"
+                    android:text="Нежилое" />
+
+                <com.gc.materialdesign.views.ButtonFlat
+                    android:id="@+id/buttonLOT"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/btn_off"
+                    android:text="Участок" />
+            </TableRow>
+
+            <!--<FrameLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:id="@+id/container" android:layout_marginBottom="3dp"/>-->
+
+            <FrameLayout
+                android:id="@+id/container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="80dp" />
+
+            <LinearLayout
+                android:id="@+id/priceLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/from"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="3dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/et_border"
+                    android:hint="от"
+                    android:inputType="number"
+                    android:maxLength="10"
+                    android:singleLine="true"
+                    android:textColor="@color/textColor" />
+
+                <TextView
+                    android:id="@+id/textView2"
+                    style="@style/whiteText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="3dp"
+                    android:text="-" />
+
+                <EditText
+                    android:id="@+id/to"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="3dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/et_border"
+                    android:hint="до"
+                    android:inputType="number"
+                    android:maxLength="10"
+                    android:singleLine="true"
+                    android:textColor="@color/textColor" />
+
+                <TextView
+                    android:id="@+id/units"
+                    style="@style/whiteText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="3dp"
+                    android:text="руб." />
+            </LinearLayout>
+
+            <!--<com.appyvet.rangebar.RangeBar xmlns:custom="http://schemas.android.com/apk/res-auto"-->
+            <!--android:id="@+id/priceRangebar"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="72dp"-->
+            <!--android:layout_marginLeft="7dp"-->
+            <!--android:layout_marginRight="7dp"-->
+            <!--custom:tickEnd="10"-->
+            <!--custom:tickInterval="1"-->
+            <!--custom:tickStart="0" />-->
+
+        </TableLayout>
+
+    </ScrollView>
+
+</com.timurkaSoft.AntiAgent.FragmentTransaction.SlidingRelativeLayout>

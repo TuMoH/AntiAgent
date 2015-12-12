@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<com.timurkaSoft.AntiAgent.FragmentTransaction.SlidingRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_material_light"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="4dp"
+            android:id="@+id/shadow"
+            android:background="#80373737"
+            android:layout_alignParentTop="true" />
+
+        <ListView
+            android:id="@+id/listViewData"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="3dp"
+            android:layout_below="@+id/shadow" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvError"
+            android:layout_below="@+id/shadow"
+            android:padding="2dp"
+            android:gravity="center_horizontal" />
+
+    </RelativeLayout>
+
+</com.timurkaSoft.AntiAgent.FragmentTransaction.SlidingRelativeLayout>

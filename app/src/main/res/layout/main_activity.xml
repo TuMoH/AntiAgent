@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        app:contentInsetLeft="6dp"
+        app:contentInsetStart="6dp" />
+
+    <android.support.v4.widget.DrawerLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/drawer_layout"
+        android:layout_below="@+id/toolbar">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <FrameLayout
+                android:id="@+id/head_container"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="-5dp" />
+
+            <com.gc.materialdesign.views.ButtonFloat
+                android:id="@+id/fab"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="24dp"
+                android:background="@color/orange"
+                android:onClick="onClick"
+                app:animate="true"
+                app:iconDrawable="@drawable/ic_search_white_48dp" />
+
+            <com.gc.materialdesign.views.ButtonFloat
+                android:id="@+id/subFabKick"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="24dp"
+                android:background="@color/blue"
+                android:onClick="onClick"
+                android:visibility="invisible"
+                app:animate="false"
+                app:iconDrawable="@drawable/ic_menu_block" />
+
+            <!--<com.gc.materialdesign.views.ButtonFloat
+                android:id="@+id/subFabCall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="24dp"
+                android:background="@color/blue"
+                android:onClick="onClick"
+                android:visibility="invisible"
+                app:animate="false"
+                app:iconDrawable="@drawable/ic_menu_call" />-->
+
+            <com.gc.materialdesign.views.ButtonFloat
+                android:id="@+id/subFabGeo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="24dp"
+                android:background="@color/blue"
+                android:onClick="onClick"
+                android:visibility="invisible"
+                app:animate="false"
+                app:iconDrawable="@drawable/ic_dialog_map" />
+
+
+            <com.gc.materialdesign.views.ButtonFloat
+                android:id="@+id/subFabPhoto"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="24dp"
+                android:background="@color/blue"
+                android:onClick="onClick"
+                android:visibility="invisible"
+                app:animate="false"
+                app:iconDrawable="@drawable/ic_menu_camera" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="240dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            android:background="#fff"
+            android:clickable="true"
+            android:choiceMode="singleChoice"
+            android:divider="@android:color/transparent"
+            android:dividerHeight="0dp">
+
+            <ListView
+                android:id="@+id/drawer_list_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:paddingTop="15dp"/>
+
+        </RelativeLayout>
+
+    </android.support.v4.widget.DrawerLayout>
+
+</RelativeLayout>
