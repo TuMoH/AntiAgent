@@ -71,24 +71,10 @@
                         android:autoLink="email"
                         android:linksClickable="true" />
 
-                    <LinearLayout
+                    <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Телефон: "
-                            android:layout_gravity="center_vertical" />
-
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center_vertical"
-                            android:id="@+id/tel_image_view"/>
-
-                    </LinearLayout>
+                        android:id="@+id/tel_image_view"/>
 
                 </LinearLayout>
 

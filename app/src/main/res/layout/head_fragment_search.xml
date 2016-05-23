@@ -26,14 +26,14 @@
                 android:layout_marginBottom="5dp"
                 android:layout_marginTop="5dp"
                 android:minHeight="30dp"
-                style="@style/Base.Widget.AppCompat.Spinner.DropDown.ActionBar" />
+                style="@style/Widget.AppCompat.Spinner.DropDown.ActionBar" />
 
             <Spinner
                 android:id="@+id/spinnerZone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:minHeight="30dp"
-                style="@style/Base.Widget.AppCompat.Spinner.DropDown.ActionBar" />
+                style="@style/Widget.AppCompat.Spinner.DropDown.ActionBar" />
 
             <TableRow
                 android:layout_width="match_parent"

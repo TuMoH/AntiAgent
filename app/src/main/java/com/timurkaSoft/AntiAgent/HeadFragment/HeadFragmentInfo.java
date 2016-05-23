@@ -2,6 +2,8 @@ package com.timurkaSoft.AntiAgent.HeadFragment;
 
 import android.app.Fragment;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.net.Uri;
@@ -14,6 +16,7 @@ import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.style.ForegroundColorSpan;
 import android.text.style.StyleSpan;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -22,10 +25,13 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.gc.materialdesign.views.ButtonFloat;
 import com.nispok.snackbar.Snackbar;
 import com.nispok.snackbar.listeners.ActionClickListener;
+import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
+import com.nostra13.universalimageloader.core.assist.ImageScaleType;
 import com.pnikosis.materialishprogress.ProgressWheel;
 import com.timurkaSoft.AntiAgent.ComplainDialog;
 import com.timurkaSoft.AntiAgent.HtmlHelper;
@@ -36,6 +42,7 @@ import com.timurkaSoft.AntiAgent.photos.ActPhotos;
 import com.timurkaSoft.AntiAgent.photos.ImageRecyclerAdapter;
 import com.timurkaSoft.AntiAgent.photos.ItemClickListener;
 
+import java.io.File;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -232,6 +239,8 @@ public class HeadFragmentInfo extends Fragment {
     private class ParseSite extends AsyncTask<String, Void, String> {
 
         boolean error;
+        boolean phoneError;
+        Bitmap bitmap;
 
         @Override
         protected void onPreExecute() {
@@ -241,6 +250,8 @@ public class HeadFragmentInfo extends Fragment {
             telImageViewLayout.setVisibility(View.GONE);
             moreInfo = null;
             error = false;
+            phoneError = false;
+            bitmap = null;
             hasProgress = true;
             tvProgress.setText("Загружаю объявление");
             tvProgress.setVisibility(View.VISIBLE);
@@ -251,12 +262,31 @@ public class HeadFragmentInfo extends Fragment {
             try {
                 cityFoTel = getCityFoTel(arg[0]);
                 id = getID(arg[0]);
+                String tel = null;
+                try {
+                    File file = Glide.
+                            with(getActivity()).
+                            load(getTelImgUrl()).downloadOnly(-1, -1).get();
+
+                    BitmapFactory.Options opts = new BitmapFactory.Options();
+                    opts.inDensity = DisplayMetrics.DENSITY_DEFAULT;
+
+                    if (opts.inTargetDensity == 0) {
+                        opts.inTargetDensity = getResources().getDisplayMetrics().densityDpi;
+                    }
+
+                    bitmap = BitmapFactory.decodeFile(file.getAbsolutePath(), opts);
+                    tel = MainActivity.phoneParser.extractText(bitmap);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    phoneError = true;
+                }
                 HtmlHelper hh = new HtmlHelper(new URL(arg[0]));
                 moreInfo = new MoreInfo.Builder()
                         .setHead(hh.getDivByClass("b-serp-item__header_bold"))
                         .setAuthor(hh.getDivByClass("b-serp-item__address-text").trim())
-                        .setAllInfo(cleanAllInfo(hh.getDivByClass("b-card__content").trim(), /*hh.getTel().get(0)*/"0"))
-                        .setTel(/*hh.getTel().get(0)*/"0")
+                        .setAllInfo(cleanAllInfo(hh.getDivByClass("b-card__content").trim(), tel))
+                        .setTel(tel)
                         .setImg(cleanImg(hh.getImg(), getCity(arg[0])))
                         .build();
             } catch (Exception e) {
@@ -272,7 +302,9 @@ public class HeadFragmentInfo extends Fragment {
                 tvHead.setText(moreInfo.getHead());
                 tvAuthor.setText(moreInfo.getAuthor());
                 tvAllInfo.setText(boldText(moreInfo.getAllInfo()));
-                ImageLoader.getInstance().displayImage(getTelImgUrl(), telImageView);
+                if (phoneError) {
+                    telImageView.setImageBitmap(bitmap);
+                }
                 if (moreInfo.getImg().size() > 0) {
                     ((ButtonFloat) getActivity().findViewById(R.id.subFabPhoto))
                             .setIconDrawable(getResources().getDrawable(R.drawable.ic_menu_camera));
@@ -317,7 +349,7 @@ public class HeadFragmentInfo extends Fragment {
             while (allInfo.contains("\n\n"))
                 allInfo = allInfo.replaceAll("\n\n", "\n");
             allInfo = allInfo.replaceAll("\n ", "\n");
-//            allInfo = allInfo.replace("Телефон:", "Телефон: " + tel);
+            allInfo = allInfo.replace("Телефон:\n", tel != null ? "Телефон: " + tel + "\n" : "");
             allInfo = allInfo.replace(", Email: var login\n= '", "Email: ");
             allInfo = allInfo.replace("';var server = '", "@");
             allInfo = allInfo.replace("';var email\n= login+'@'+server;var url = 'mailto:'+email;document.write('<a href=\"'+url+'\">'+email+'</a>');", "");

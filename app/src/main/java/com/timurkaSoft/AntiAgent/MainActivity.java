@@ -15,6 +15,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.provider.Settings;
+import android.support.customtabs.CustomTabsIntent;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
@@ -29,7 +30,6 @@ import android.widget.ListView;
 
 import com.balysv.materialmenu.MaterialMenuDrawable;
 import com.gc.materialdesign.views.ButtonFloat;
-import com.gc.materialdesign.widgets.Dialog;
 import com.nispok.snackbar.Snackbar;
 import com.nispok.snackbar.listeners.ActionClickListener;
 import com.nostra13.universalimageloader.core.ImageLoader;
@@ -54,6 +54,7 @@ public class MainActivity extends ActionBarActivity {
     public static ShortInfo shortInfo;
     public static SQLiteDatabase db;
     public static TinyDB tinydb;
+    public static PhoneParser phoneParser;
     private List<Fragment> backStackFragments = new ArrayList<>();
     private FragmentManager fragmentManager;
     private HeadFragmentSearch headFragmentSearch = new HeadFragmentSearch();
@@ -107,11 +108,16 @@ public class MainActivity extends ActionBarActivity {
         fab = (ButtonFloat) findViewById(R.id.fab);
         subFabList.add((ButtonFloat) findViewById(R.id.subFabPhoto));
         subFabList.add((ButtonFloat) findViewById(R.id.subFabGeo));
-//        subFabList.add((ButtonFloat) findViewById(R.id.subFabCall));
+        subFabList.add((ButtonFloat) findViewById(R.id.subFabCall));
         subFabList.add((ButtonFloat) findViewById(R.id.subFabKick));
 
         db = (new CupboardSQLiteOpenHelper(this)).getReadableDatabase();
         tinydb = new TinyDB(this);
+        try {
+            phoneParser = new PhoneParser(this);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
         fragmentManager = getFragmentManager();
         fragmentManager.beginTransaction()
@@ -164,18 +170,13 @@ public class MainActivity extends ActionBarActivity {
     private void onClickDrawer(int position) {
         switch (position) {
             case 0:
-                Dialog dialog = new Dialog(this, "Данный раздел находится в разработке, добавить объявление можно только через сайт. " +
-                        "\nХотите перейти?");
-                dialog.setOnAcceptButtonClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Intent i = new Intent(Intent.ACTION_VIEW);
-                        i.setData(Uri.parse("http://" + headFragmentSearch.getCity() + ".antiagent.ru/addnew.html"));
-                        startActivity(i);
-                    }
-                });
-                dialog.show();
-                drawer.closeDrawers();
+                String url = "http://" + headFragmentSearch.getCity() + ".antiagent.ru/cabinet.html";
+                CustomTabsIntent.Builder intentBuilder = new CustomTabsIntent.Builder();
+                intentBuilder.setToolbarColor(getResources().getColor(R.color.primary));
+                intentBuilder.setStartAnimations(this, R.anim.slide_in_right, R.anim.slide_out_left);
+                intentBuilder.setExitAnimations(this, android.R.anim.slide_in_left, android.R.anim.slide_out_right);
+                CustomTabsIntent customTabsIntent = intentBuilder.build();
+                customTabsIntent.launchUrl(this, Uri.parse(url));
                 break;
             case 1:
                 transactionToFavorites();
@@ -353,9 +354,9 @@ public class MainActivity extends ActionBarActivity {
             case R.id.subFabGeo:
                 headFragmentInfo.goToGeo();
                 break;
-//            case R.id.subFabCall:
-//                headFragmentInfo.goToCall();
-//                break;
+            case R.id.subFabCall:
+                headFragmentInfo.goToCall();
+                break;
             case R.id.subFabKick:
                 headFragmentInfo.complaint();
                 break;
@@ -435,14 +436,7 @@ public class MainActivity extends ActionBarActivity {
         }
         if (currentFragment.equals(headFragmentSearch)) {
             if (materialMenu.getIconState() == MaterialMenuDrawable.IconState.BURGER) {
-                final Dialog dialog = new Dialog(this, "Вы действительно хотите закрыть приложение?");
-                dialog.setOnAcceptButtonClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        finish();
-                    }
-                });
-                dialog.show();
+                finish();
             }
             return;
         } else if (currentFragment.equals(headFragmentAdvert) || currentFragment.equals(headFragmentFavorites)) {
