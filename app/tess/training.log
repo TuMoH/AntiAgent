@@ -1,0 +1,333 @@
+** Run Tesseract for Training **
+[C:\Users\TuMoH\Downloads\jTessBoxEditor\tesseract-ocr/tesseract, eng.tahoma.exp0.tif, eng.tahoma.exp0, box.train]
+Tesseract Open Source OCR Engine v3.02.03 with Leptonica
+APPLY_BOXES:
+   Boxes read from boxfile:      14
+   Found 14 good blobs.
+TRAINING ... Font name = tahoma
+Generated training data for 2 words
+
+** Compute the Character Set **
+[C:\Users\TuMoH\Downloads\jTessBoxEditor\tesseract-ocr/unicharset_extractor, eng.tahoma.exp0.box]
+Extracting unicharset from eng.tahoma.exp0.box
+Wrote unicharset file ./unicharset.
+
+** Shape Clustering **
+[C:\Users\TuMoH\Downloads\jTessBoxEditor\tesseract-ocr/shapeclustering, -F, eng.font_properties, -U, unicharset, eng.tahoma.exp0.tr]
+Reading eng.tahoma.exp0.tr ...
+Building master shape table
+Computing shape distances...
+Stopped with 0 merged, min dist 999.000000
+Computing shape distances... 0
+Stopped with 0 merged, min dist 999.000000
+Computing shape distances... 0
+Stopped with 0 merged, min dist 999.000000
+Computing shape distances... 0
+Stopped with 0 merged, min dist 999.000000
+Computing shape distances... 0
+Stopped with 0 merged, min dist 999.000000
+Computing shape distances... 0
+Stopped with 0 merged, min dist 999.000000
+Computing shape distances... 0
+Stopped with 0 merged, min dist 999.000000
+Computing shape distances... 0
+Stopped with 0 merged, min dist 999.000000
+Computing shape distances... 0
+Stopped with 0 merged, min dist 999.000000
+Computing shape distances... 0
+Stopped with 0 merged, min dist 999.000000
+Computing shape distances... 0
+Stopped with 0 merged, min dist 999.000000
+Computing shape distances... 0
+Stopped with 0 merged, min dist 999.000000
+Computing shape distances... 0
+Stopped with 0 merged, min dist 999.000000
+Computing shape distances... 0
+Stopped with 0 merged, min dist 999.000000
+Computing shape distances... 0
+Stopped with 0 merged, min dist 999.000000
+Computing shape distances...
+Stopped with 0 merged, min dist 999.000000
+Computing shape distances...
+Stopped with 0 merged, min dist 999.000000
+Computing shape distances... 0 1 2 3 4 5 6 7 8 9 10 11 12 13
+Stopped with 0 merged, min dist 0.343949
+Master shape_table:Number of shapes = 14 max unichars = 1 number with multiple unichars = 0
+
+** MF Training **
+[C:\Users\TuMoH\Downloads\jTessBoxEditor\tesseract-ocr/mftraining, -F, eng.font_properties, -U, unicharset, -O, eng.unicharset, eng.tahoma.exp0.tr]
+Done!
+Read shape table shapetable of 14 shapes
+Reading eng.tahoma.exp0.tr ...
+
+** CN Training **
+[C:\Users\TuMoH\Downloads\jTessBoxEditor\tesseract-ocr/cntraining, eng.tahoma.exp0.tr]
+Reading eng.tahoma.exp0.tr ...
+Clustering ...
+
+Writing normproto ...
+
+Successful rename of inttemp
+Successful rename of pffmtable
+Successful rename of normproto
+Successful rename of shapetable
+** Dictionary Data **
+[C:\Users\TuMoH\Downloads\jTessBoxEditor\tesseract-ocr/wordlist2dawg, eng.frequent_words_list, eng.freq-dawg, eng.unicharset]
+Loading unicharset from 'eng.unicharset'
+Reading word list from 'eng.frequent_words_list'
+Reducing Trie to SquishedDawg
+Dawg is empty, skip producing the output file
+
+[C:\Users\TuMoH\Downloads\jTessBoxEditor\tesseract-ocr/wordlist2dawg, eng.words_list, eng.word-dawg, eng.unicharset]
+Loading unicharset from 'eng.unicharset'
+Reading word list from 'eng.words_list'
+Reducing Trie to SquishedDawg
+Dawg is empty, skip producing the output file
+
+** Combine Data Files **
+[C:\Users\TuMoH\Downloads\jTessBoxEditor\tesseract-ocr/combine_tessdata, eng.]
+Combining tessdata files
+Output eng.traineddata created sucessfully.
+TessdataManager combined tesseract data files.
+Offset for type  0 (eng.config                ) is -1
+Offset for type  1 (eng.unicharset            ) is 140
+Offset for type  2 (eng.unicharambigs         ) is -1
+Offset for type  3 (eng.inttemp               ) is 1062
+Offset for type  4 (eng.pffmtable             ) is 145128
+Offset for type  5 (eng.normproto             ) is 145239
+Offset for type  6 (eng.punc-dawg             ) is -1
+Offset for type  7 (eng.word-dawg             ) is -1
+Offset for type  8 (eng.number-dawg           ) is -1
+Offset for type  9 (eng.freq-dawg             ) is -1
+Offset for type 10 (eng.fixed-length-dawgs    ) is -1
+Offset for type 11 (eng.cube-unicharset       ) is -1
+Offset for type 12 (eng.cube-word-dawg        ) is -1
+Offset for type 13 (eng.shapetable            ) is 147101
+Offset for type 14 (eng.bigram-dawg           ) is -1
+Offset for type 15 (eng.unambig-dawg          ) is -1
+Offset for type 16 (eng.params-training-model ) is -1
+
+** Moving generated traineddata file to tessdata folder **
+** Training Completed **
+** Run Tesseract for Training **
+[C:\Users\TuMoH\Downloads\jTessBoxEditor\tesseract-ocr/tesseract, eng.tahoma.exp0.tif, eng.tahoma.exp0, box.train]
+Tesseract Open Source OCR Engine v3.02.03 with Leptonica
+APPLY_BOXES:
+   Boxes read from boxfile:      14
+   Found 14 good blobs.
+TRAINING ... Font name = tahoma
+Generated training data for 2 words
+
+** Compute the Character Set **
+[C:\Users\TuMoH\Downloads\jTessBoxEditor\tesseract-ocr/unicharset_extractor, eng.tahoma.exp0.box]
+Extracting unicharset from eng.tahoma.exp0.box
+Wrote unicharset file ./unicharset.
+
+** Shape Clustering **
+[C:\Users\TuMoH\Downloads\jTessBoxEditor\tesseract-ocr/shapeclustering, -F, eng.font_properties, -U, unicharset, eng.tahoma.exp0.tr]
+Reading eng.tahoma.exp0.tr ...
+Building master shape table
+Computing shape distances...
+Stopped with 0 merged, min dist 999.000000
+Computing shape distances... 0
+Stopped with 0 merged, min dist 999.000000
+Computing shape distances... 0
+Stopped with 0 merged, min dist 999.000000
+Computing shape distances... 0
+Stopped with 0 merged, min dist 999.000000
+Computing shape distances... 0
+Stopped with 0 merged, min dist 999.000000
+Computing shape distances... 0
+Stopped with 0 merged, min dist 999.000000
+Computing shape distances... 0
+Stopped with 0 merged, min dist 999.000000
+Computing shape distances... 0
+Stopped with 0 merged, min dist 999.000000
+Computing shape distances... 0
+Stopped with 0 merged, min dist 999.000000
+Computing shape distances... 0
+Stopped with 0 merged, min dist 999.000000
+Computing shape distances... 0
+Stopped with 0 merged, min dist 999.000000
+Computing shape distances... 0
+Stopped with 0 merged, min dist 999.000000
+Computing shape distances... 0
+Stopped with 0 merged, min dist 999.000000
+Computing shape distances... 0
+Stopped with 0 merged, min dist 999.000000
+Computing shape distances... 0
+Stopped with 0 merged, min dist 999.000000
+Computing shape distances...
+Stopped with 0 merged, min dist 999.000000
+Computing shape distances...
+Stopped with 0 merged, min dist 999.000000
+Computing shape distances... 0 1 2 3 4 5 6 7 8 9 10 11 12 13
+Stopped with 0 merged, min dist 0.343949
+Master shape_table:Number of shapes = 14 max unichars = 1 number with multiple unichars = 0
+
+** MF Training **
+[C:\Users\TuMoH\Downloads\jTessBoxEditor\tesseract-ocr/mftraining, -F, eng.font_properties, -U, unicharset, -O, eng.unicharset, eng.tahoma.exp0.tr]
+Done!
+Read shape table shapetable of 14 shapes
+Reading eng.tahoma.exp0.tr ...
+
+** CN Training **
+[C:\Users\TuMoH\Downloads\jTessBoxEditor\tesseract-ocr/cntraining, eng.tahoma.exp0.tr]
+Reading eng.tahoma.exp0.tr ...
+Clustering ...
+
+Writing normproto ...
+
+Successful rename of inttemp
+Successful rename of pffmtable
+Successful rename of normproto
+Successful rename of shapetable
+** Dictionary Data **
+[C:\Users\TuMoH\Downloads\jTessBoxEditor\tesseract-ocr/wordlist2dawg, eng.frequent_words_list, eng.freq-dawg, eng.unicharset]
+Loading unicharset from 'eng.unicharset'
+Reading word list from 'eng.frequent_words_list'
+Reducing Trie to SquishedDawg
+Dawg is empty, skip producing the output file
+
+[C:\Users\TuMoH\Downloads\jTessBoxEditor\tesseract-ocr/wordlist2dawg, eng.words_list, eng.word-dawg, eng.unicharset]
+Loading unicharset from 'eng.unicharset'
+Reading word list from 'eng.words_list'
+Reducing Trie to SquishedDawg
+Dawg is empty, skip producing the output file
+
+** Combine Data Files **
+[C:\Users\TuMoH\Downloads\jTessBoxEditor\tesseract-ocr/combine_tessdata, eng.]
+Combining tessdata files
+Output eng.traineddata created sucessfully.
+TessdataManager combined tesseract data files.
+Offset for type  0 (eng.config                ) is -1
+Offset for type  1 (eng.unicharset            ) is 140
+Offset for type  2 (eng.unicharambigs         ) is -1
+Offset for type  3 (eng.inttemp               ) is 1062
+Offset for type  4 (eng.pffmtable             ) is 145128
+Offset for type  5 (eng.normproto             ) is 145239
+Offset for type  6 (eng.punc-dawg             ) is -1
+Offset for type  7 (eng.word-dawg             ) is -1
+Offset for type  8 (eng.number-dawg           ) is -1
+Offset for type  9 (eng.freq-dawg             ) is -1
+Offset for type 10 (eng.fixed-length-dawgs    ) is -1
+Offset for type 11 (eng.cube-unicharset       ) is -1
+Offset for type 12 (eng.cube-word-dawg        ) is -1
+Offset for type 13 (eng.shapetable            ) is 147101
+Offset for type 14 (eng.bigram-dawg           ) is -1
+Offset for type 15 (eng.unambig-dawg          ) is -1
+Offset for type 16 (eng.params-training-model ) is -1
+
+** Moving generated traineddata file to tessdata folder **
+** Training Completed **
+** Run Tesseract for Training **
+[C:\Users\TuMoH\Downloads\jTessBoxEditor\tesseract-ocr/tesseract, eng.tahoma.exp0.tif, eng.tahoma.exp0, box.train]
+Tesseract Open Source OCR Engine v3.02.03 with Leptonica
+APPLY_BOXES:
+   Boxes read from boxfile:      14
+   Found 14 good blobs.
+TRAINING ... Font name = tahoma
+Generated training data for 2 words
+
+** Compute the Character Set **
+[C:\Users\TuMoH\Downloads\jTessBoxEditor\tesseract-ocr/unicharset_extractor, eng.tahoma.exp0.box]
+Extracting unicharset from eng.tahoma.exp0.box
+Wrote unicharset file ./unicharset.
+
+** Shape Clustering **
+[C:\Users\TuMoH\Downloads\jTessBoxEditor\tesseract-ocr/shapeclustering, -F, eng.font_properties, -U, unicharset, eng.tahoma.exp0.tr]
+Reading eng.tahoma.exp0.tr ...
+Building master shape table
+Computing shape distances...
+Stopped with 0 merged, min dist 999.000000
+Computing shape distances... 0
+Stopped with 0 merged, min dist 999.000000
+Computing shape distances... 0
+Stopped with 0 merged, min dist 999.000000
+Computing shape distances... 0
+Stopped with 0 merged, min dist 999.000000
+Computing shape distances... 0
+Stopped with 0 merged, min dist 999.000000
+Computing shape distances... 0
+Stopped with 0 merged, min dist 999.000000
+Computing shape distances... 0
+Stopped with 0 merged, min dist 999.000000
+Computing shape distances... 0
+Stopped with 0 merged, min dist 999.000000
+Computing shape distances... 0
+Stopped with 0 merged, min dist 999.000000
+Computing shape distances... 0
+Stopped with 0 merged, min dist 999.000000
+Computing shape distances... 0
+Stopped with 0 merged, min dist 999.000000
+Computing shape distances... 0
+Stopped with 0 merged, min dist 999.000000
+Computing shape distances... 0
+Stopped with 0 merged, min dist 999.000000
+Computing shape distances... 0
+Stopped with 0 merged, min dist 999.000000
+Computing shape distances... 0
+Stopped with 0 merged, min dist 999.000000
+Computing shape distances...
+Stopped with 0 merged, min dist 999.000000
+Computing shape distances...
+Stopped with 0 merged, min dist 999.000000
+Computing shape distances... 0 1 2 3 4 5 6 7 8 9 10 11 12 13
+Stopped with 0 merged, min dist 0.343949
+Master shape_table:Number of shapes = 14 max unichars = 1 number with multiple unichars = 0
+
+** MF Training **
+[C:\Users\TuMoH\Downloads\jTessBoxEditor\tesseract-ocr/mftraining, -F, eng.font_properties, -U, unicharset, -O, eng.unicharset, eng.tahoma.exp0.tr]
+Done!
+Read shape table shapetable of 14 shapes
+Reading eng.tahoma.exp0.tr ...
+
+** CN Training **
+[C:\Users\TuMoH\Downloads\jTessBoxEditor\tesseract-ocr/cntraining, eng.tahoma.exp0.tr]
+Reading eng.tahoma.exp0.tr ...
+Clustering ...
+
+Writing normproto ...
+
+Successful rename of inttemp
+Successful rename of pffmtable
+Successful rename of normproto
+Successful rename of shapetable
+** Dictionary Data **
+[C:\Users\TuMoH\Downloads\jTessBoxEditor\tesseract-ocr/wordlist2dawg, eng.frequent_words_list, eng.freq-dawg, eng.unicharset]
+Loading unicharset from 'eng.unicharset'
+Reading word list from 'eng.frequent_words_list'
+Reducing Trie to SquishedDawg
+Dawg is empty, skip producing the output file
+
+[C:\Users\TuMoH\Downloads\jTessBoxEditor\tesseract-ocr/wordlist2dawg, eng.words_list, eng.word-dawg, eng.unicharset]
+Loading unicharset from 'eng.unicharset'
+Reading word list from 'eng.words_list'
+Reducing Trie to SquishedDawg
+Dawg is empty, skip producing the output file
+
+** Combine Data Files **
+[C:\Users\TuMoH\Downloads\jTessBoxEditor\tesseract-ocr/combine_tessdata, eng.]
+Combining tessdata files
+Output eng.traineddata created sucessfully.
+TessdataManager combined tesseract data files.
+Offset for type  0 (eng.config                ) is -1
+Offset for type  1 (eng.unicharset            ) is 140
+Offset for type  2 (eng.unicharambigs         ) is -1
+Offset for type  3 (eng.inttemp               ) is 1062
+Offset for type  4 (eng.pffmtable             ) is 145128
+Offset for type  5 (eng.normproto             ) is 145239
+Offset for type  6 (eng.punc-dawg             ) is -1
+Offset for type  7 (eng.word-dawg             ) is -1
+Offset for type  8 (eng.number-dawg           ) is -1
+Offset for type  9 (eng.freq-dawg             ) is -1
+Offset for type 10 (eng.fixed-length-dawgs    ) is -1
+Offset for type 11 (eng.cube-unicharset       ) is -1
+Offset for type 12 (eng.cube-word-dawg        ) is -1
+Offset for type 13 (eng.shapetable            ) is 147101
+Offset for type 14 (eng.bigram-dawg           ) is -1
+Offset for type 15 (eng.unambig-dawg          ) is -1
+Offset for type 16 (eng.params-training-model ) is -1
+
+** Moving generated traineddata file to tessdata folder **
+** Training Completed **

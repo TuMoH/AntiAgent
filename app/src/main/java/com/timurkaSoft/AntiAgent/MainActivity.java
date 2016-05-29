@@ -20,6 +20,7 @@ import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -30,6 +31,10 @@ import android.widget.ListView;
 
 import com.balysv.materialmenu.MaterialMenuDrawable;
 import com.gc.materialdesign.views.ButtonFloat;
+import com.google.android.gms.ads.AdListener;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.InterstitialAd;
+import com.google.android.gms.ads.MobileAds;
 import com.nispok.snackbar.Snackbar;
 import com.nispok.snackbar.listeners.ActionClickListener;
 import com.nostra13.universalimageloader.core.ImageLoader;
@@ -68,6 +73,7 @@ public class MainActivity extends ActionBarActivity {
     boolean subIsHide = true;
     private MaterialMenuDrawable materialMenu;
     private DrawerLayout drawer;
+    private InterstitialAd mInterstitialAd;
 
     public static boolean fromUpdater = false;
 
@@ -143,6 +149,18 @@ public class MainActivity extends ActionBarActivity {
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
 
         ImageLoader.getInstance().init(ImageLoaderConfiguration.createDefault(this));
+
+        MobileAds.initialize(getApplicationContext(), "ca-app-pub-2095517763260319~2439910182");
+        mInterstitialAd = new InterstitialAd(this);
+        mInterstitialAd.setAdUnitId("ca-app-pub-2095517763260319/8207242185");
+        requestNewInterstitial();
+
+        mInterstitialAd.setAdListener(new AdListener() {
+            @Override
+            public void onAdClosed() {
+                requestNewInterstitial();
+            }
+        });
     }
 
     private DrawerLayout.DrawerListener drawerListener = new DrawerLayout.DrawerListener() {
@@ -287,7 +305,18 @@ public class MainActivity extends ActionBarActivity {
         if (!currentFragment.equals(headFragmentInfo)) {
             addTransition(headFragmentInfo);
             infoFavorites();
+            if (mInterstitialAd.isLoaded()) {
+                mInterstitialAd.show();
+            }
         }
+    }
+
+    private void requestNewInterstitial() {
+        AdRequest adRequest = new AdRequest.Builder()
+                .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
+                .build();
+
+        mInterstitialAd.loadAd(adRequest);
     }
 
     public void transactionToAdvert(String url) {
