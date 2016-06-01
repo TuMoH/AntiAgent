@@ -79,7 +79,7 @@ public class PhoneParser {
     public String extractText(Bitmap bitmap) {
         try {
             tessBaseApi = new TessBaseAPI();
-        } catch (Exception e) {
+        } catch (Throwable e) {
             Log.e(TAG, e.getMessage());
             if (tessBaseApi == null) {
                 Log.e(TAG, "TessBaseAPI is null. TessFactory not returning tess object.");

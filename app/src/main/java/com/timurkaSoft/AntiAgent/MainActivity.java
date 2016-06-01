@@ -20,7 +20,6 @@ import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -74,6 +73,8 @@ public class MainActivity extends ActionBarActivity {
     private MaterialMenuDrawable materialMenu;
     private DrawerLayout drawer;
     private InterstitialAd mInterstitialAd;
+    private static long ad_count = 0;
+    private static long ad_count_limit = 4;
 
     public static boolean fromUpdater = false;
 
@@ -158,6 +159,7 @@ public class MainActivity extends ActionBarActivity {
         mInterstitialAd.setAdListener(new AdListener() {
             @Override
             public void onAdClosed() {
+                showInfo();
                 requestNewInterstitial();
             }
         });
@@ -303,19 +305,31 @@ public class MainActivity extends ActionBarActivity {
             return;
         }
         if (!currentFragment.equals(headFragmentInfo)) {
+            if (ad_count >= ad_count_limit) {
+                ad_count = 0;
+                if (mInterstitialAd.isLoaded()) {
+                    mInterstitialAd.show();
+                    return;
+                } else {
+                    requestNewInterstitial();
+                }
+            }
+            ad_count++;
+            showInfo();
+        }
+    }
+
+    private void showInfo() {
+        try {
             addTransition(headFragmentInfo);
             infoFavorites();
-            if (mInterstitialAd.isLoaded()) {
-                mInterstitialAd.show();
-            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
     private void requestNewInterstitial() {
-        AdRequest adRequest = new AdRequest.Builder()
-                .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
-                .build();
-
+        AdRequest adRequest = new AdRequest.Builder().build();
         mInterstitialAd.loadAd(adRequest);
     }
 
