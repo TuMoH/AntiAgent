@@ -109,6 +109,7 @@ public class HtmlHelper {
             if (href.contains("photo")) {
                 href = href.replace("{src=", "");
                 href = href.replace("}", "");
+                href = href.replace("small", "big");
                 list.add(href);
             }
         }

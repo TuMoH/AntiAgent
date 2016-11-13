@@ -287,7 +287,7 @@ public class HeadFragmentInfo extends Fragment {
                         .setAuthor(hh.getDivByClass("b-serp-item__address-text").trim())
                         .setAllInfo(cleanAllInfo(hh.getDivByClass("b-card__content").trim(), tel))
                         .setTel(tel)
-                        .setImg(cleanImg(hh.getImg(), getCity(arg[0])))
+                        .setImg(hh.getImg())
                         .build();
             } catch (Exception e) {
                 e.printStackTrace();
@@ -355,18 +355,6 @@ public class HeadFragmentInfo extends Fragment {
             allInfo = allInfo.replace("';var email\n= login+'@'+server;var url = 'mailto:'+email;document.write('<a href=\"'+url+'\">'+email+'</a>');", "");
             allInfo = allInfo.replace(", просмотров:", ", просмотров");
             return allInfo;
-        }
-
-        private List<String> cleanImg(List<String> img, String city) {
-            List<String> cleanImg = new ArrayList<>();
-            for (String sImg : img) {
-                String[] nameBuf = sImg.split("/");
-                String s = nameBuf[nameBuf.length - 1];
-                s = s.replace("thumb_", "");
-                s = "http://antiagent.ru/photo/" + city + "/" + s;
-                cleanImg.add(s);
-            }
-            return cleanImg;
         }
 
         private String getTelImgUrl() {
