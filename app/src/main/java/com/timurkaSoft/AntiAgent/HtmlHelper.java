@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 public class HtmlHelper {
     TagNode rootNode;
@@ -101,16 +102,19 @@ public class HtmlHelper {
 
     public List<String> getImg() {
         List<String> list = new ArrayList<>();
-        TagNode elements[] = rootNode.getElementsByName("img", true);
-        for (int i = 0; elements != null && i < elements.length; i++) {
-            //получаем атрибут по имени
-            String href = elements[i].getAttributes().toString();
-            //если атрибут есть и он эквивалентен искомому, то добавляем в список
-            if (href.contains("photo")) {
-                href = href.replace("{src=", "");
-                href = href.replace("}", "");
-                href = href.replace("small", "big");
-                list.add(href);
+        TagNode[] elements = rootNode.getElementsByName("img", true);
+        if (elements != null) {
+            for (TagNode element : elements) {
+                Map<String, String> attrs = element.getAttributes();
+                if (attrs != null && attrs.containsKey("src")) {
+                    //получаем атрибут по имени
+                    String href = attrs.get("src");
+                    //если атрибут есть и он эквивалентен искомому, то добавляем в список
+                    if (href.contains("photo")) {
+                        href = href.replace("small", "big");
+                        list.add(href);
+                    }
+                }
             }
         }
         return list;
