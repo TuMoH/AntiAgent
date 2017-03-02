@@ -152,7 +152,7 @@ public class HeadFragmentSettings extends Fragment implements View.OnClickListen
                 dataZone.add("Любой район");
                 dataZoneTag.add("ALL");
                 try {
-                    HtmlHelper hh = new HtmlHelper(new URL("http://" + city + ".antiagent.ru/ajax.php?func=geoselector"));
+                    HtmlHelper hh = new HtmlHelper(new URL("https://" + city + ".antiagent.ru/ajax.php?func=geoselector"));
                     List<TagNode> links = hh.getLinksByClass("b-link b-geo-link");
                     for (int j = 0; j < links.size(); j++) {
                         dataZone.add(links.get(j).getText().toString());

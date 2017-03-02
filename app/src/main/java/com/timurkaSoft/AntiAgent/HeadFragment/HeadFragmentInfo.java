@@ -358,7 +358,7 @@ public class HeadFragmentInfo extends Fragment {
         }
 
         private String getTelImgUrl() {
-            return "http://" + cityFoTel + ".antiagent.ru/phone.php?id=" + id;
+            return "https://" + cityFoTel + ".antiagent.ru/phone.php?id=" + id;
         }
 
         private String getID(String href) {

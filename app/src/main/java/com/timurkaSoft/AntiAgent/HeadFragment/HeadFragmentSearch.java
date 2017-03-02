@@ -292,7 +292,7 @@ public class HeadFragmentSearch extends Fragment implements View.OnClickListener
     }
 
     public String getHref() {
-        return "http://" + currentCity
+        return "https://" + currentCity
                 + ".antiagent.ru/index.html?Type=" + type
                 + "&Category=" + category
                 + fragmentApartment.getRoomsTotal()

@@ -190,7 +190,7 @@ public class MainActivity extends ActionBarActivity {
     private void onClickDrawer(int position) {
         switch (position) {
             case 0:
-                String url = "http://" + headFragmentSearch.getCity() + ".antiagent.ru/cabinet.html";
+                String url = "https://" + headFragmentSearch.getCity() + ".antiagent.ru/cabinet.html";
                 CustomTabsIntent.Builder intentBuilder = new CustomTabsIntent.Builder();
                 intentBuilder.setToolbarColor(getResources().getColor(R.color.primary));
                 intentBuilder.setStartAnimations(this, R.anim.slide_in_right, R.anim.slide_out_left);
