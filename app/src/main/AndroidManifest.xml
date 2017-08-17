@@ -33,6 +33,10 @@
             android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
             android:theme="@android:style/Theme.Translucent" />
 
+        <meta-data
+            android:name="com.timurkaSoft.AntiAgent.glide.GlideModuleWithHeaders"
+            android:value="GlideModule" />
+
     </application>
 
 </manifest>

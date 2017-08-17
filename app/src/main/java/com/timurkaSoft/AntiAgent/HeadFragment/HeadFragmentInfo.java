@@ -74,6 +74,12 @@ public class HeadFragmentInfo extends Fragment {
         tvAuthor = (TextView) view.findViewById(R.id.tvAuthor);
         tvAllInfo = (TextView) view.findViewById(R.id.tvAllInfo);
         telImageView = (ImageView) view.findViewById(R.id.tel_image_view);
+        telImageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                goToCall();
+            }
+        });
         telImageViewLayout = (LinearLayout) view.findViewById(R.id.tel_image_view_layout);
         tvProgress = (TextView) view.findViewById(R.id.tvProgress);
         progressBar = (ProgressWheel) view.findViewById(R.id.progressBar);
@@ -264,9 +270,9 @@ public class HeadFragmentInfo extends Fragment {
                 id = getID(arg[0]);
                 String tel = null;
                 try {
-                    File file = Glide.
-                            with(getActivity()).
-                            load(getTelImgUrl()).downloadOnly(-1, -1).get();
+                    File file = Glide
+                            .with(getActivity())
+                            .load(getTelImgUrl()).downloadOnly(-1, -1).get();
 
                     BitmapFactory.Options opts = new BitmapFactory.Options();
                     opts.inDensity = DisplayMetrics.DENSITY_DEFAULT;
@@ -302,9 +308,8 @@ public class HeadFragmentInfo extends Fragment {
                 tvHead.setText(moreInfo.getHead());
                 tvAuthor.setText(moreInfo.getAuthor());
                 tvAllInfo.setText(boldText(moreInfo.getAllInfo()));
-                if (phoneError) {
-                    telImageView.setImageBitmap(bitmap);
-                }
+                telImageView.setImageBitmap(bitmap);
+
                 if (moreInfo.getImg().size() > 0) {
                     ((ButtonFloat) getActivity().findViewById(R.id.subFabPhoto))
                             .setIconDrawable(getResources().getDrawable(R.drawable.ic_menu_camera));
@@ -354,6 +359,7 @@ public class HeadFragmentInfo extends Fragment {
             allInfo = allInfo.replace("';var server = '", "@");
             allInfo = allInfo.replace("';var email\n= login+'@'+server;var url = 'mailto:'+email;document.write('<a href=\"'+url+'\">'+email+'</a>');", "");
             allInfo = allInfo.replace(", просмотров:", ", просмотров");
+            allInfo = allInfo.replace("&nbsp;", " ");
             return allInfo;
         }
 
